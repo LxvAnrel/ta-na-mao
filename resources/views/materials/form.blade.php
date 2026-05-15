@@ -10,9 +10,10 @@
         <div class="card shadow-sm">
           <div class="card-body p-4">
 
-            <div class="card-header bg-primary">
-                <h3 class="mt-2 fw-bold text-white ">Cadastrar Material</h3>    
-            </div>
+      <div class="card-header bg-primary d-flex align-items-center gap-2">
+        <i class="bi bi-journal-plus text-white fs-4"></i>
+        <h3 class="mt-2 fw-bold text-white mb-0">Cadastrar Material</h3>
+      </div>
 
             {{-- Exibe a div de erros caso existam --}}
             @if($errors->any())
@@ -43,17 +44,17 @@
               {{-- Campo: Arquivo --}}
               <div class="mb-4">
                 <label for="arquivo" class="form-label">Arquivo (PDF, ZIP, DOCX)</label>
-                <input class="form-control" type="file" id="arquivo" name="file_url">
+                <input class="form-control" type="text" id="arquivo" name="file_url" accept=".pdf,.zip,.doc,.docx">
                 <div class="form-text">Tamanho máximo permitido: 10MB.</div>
               </div>
 
-              <div class="d-grid gap-2">
+              <div class="d-flex gap-2">
                 <button type="submit" class="btn btn-primary">
                   <i class="bi bi-cloud-upload"></i> Compartilhar Material
                 </button>
-                {{-- <a href="/materiais" class="btn btn-outline-secondary">
+                <a href="/materials" class="btn btn-outline-secondary">
                   Cancelar
-                </a> --}}
+                </a>
               </div>
 
             </form>

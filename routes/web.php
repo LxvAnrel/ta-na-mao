@@ -9,10 +9,14 @@ use App\Http\Controllers\MaterialController;
 //Arquivo para a programação das rotas 
 //Route::Método da requisição('rota da URL', função que da o retorno da view)
 
-Route::get('/', function (Request $request) {
+/*Route::get('/', function (Request $request) {
     //Criando a variavel para a passagem do nome, que acorrerá por uma array
     $nome = $request->nome ?? $nome = "Murilo"; 
     return view('inicial', ["nome" => $nome]);
+});*/
+
+Route::get('/', function (Request $request) {
+    return view('Auth/signIn');
 });
 
 //Rota que recebe os dados via post
@@ -32,6 +36,6 @@ Route::get('/sign-in', function(){
 Route::post('/sign-in', [UserController::class, 'store']);
 
 //Rotas do material
+Route::get('/materials', [MaterialController::class, 'index']);
 Route::get('/materials/new', [MaterialController::class, 'create']);
-
 Route::post('/materials/new', [MaterialController::class, 'store']);
